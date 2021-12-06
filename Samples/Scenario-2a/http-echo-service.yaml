@@ -1,0 +1,35 @@
+apiVersion appconnect.ibm.comv1beta1
+kind IntegrationServer
+metadata
+  name http-echo-service
+  namespace ace-demo
+  labels {}
+spec
+  adminServerSecure false
+  barURL -
+    httpsgithub.comamarIBMhello-worldrawmasterHttpEchoApp.bar
+  configurations
+    - github-barauth
+  createDashboardUsers true
+  designerFlowsOperationMode disabled
+  enableMetrics true
+  license
+    accept true
+    license L-KSBM-C37J2R
+    use AppConnectEnterpriseProduction
+  pod
+    containers
+      runtime
+        resources
+          limits
+            cpu 300m
+            memory 350Mi
+          requests
+            cpu 300m
+            memory 300Mi
+  replicas 1
+  router
+    timeout 120s
+  service
+    endpointType http
+  version '12.0'

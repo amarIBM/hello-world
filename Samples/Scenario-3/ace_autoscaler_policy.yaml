@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ace-auto-scaler
+  namespace: ace
+spec:
+  scaleTargetRef:
+    kind: IntegrationServer
+    name: auto-scale-demo
+    apiVersion: appconnect.ibm.com/v1beta1
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80

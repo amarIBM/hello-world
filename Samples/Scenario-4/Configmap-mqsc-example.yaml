@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqsc-example
+data:
+  example1.mqsc: |
+    DEFINE QLOCAL('BACKEND') REPLACE
+    DEFINE CHANNEL('ACEMQCLIENT')  CHLTYPE (SVRCONN) MCAUSER('mqm') SSLCAUTH(OPTIONAL)
+    ALTER QMGR CHLAUTH(DISABLED) CHAD(ENABLED)
+    REFRESH SECURITY
