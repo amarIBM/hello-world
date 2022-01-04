@@ -6,7 +6,7 @@ metadata:
 spec:
   adminServerSecure: false
   barURL: >-
-    https://github.com/amarIBM/hello-world/raw/master/SimpleHttpMQBackendApp.bar
+    https://github.com/amarIBM/hello-world/raw/master/Samples/Scenario-5/SimpleHttpMQBackendApp.bar
   configurations:
     - github-barauth
     - ace-mq-demo
