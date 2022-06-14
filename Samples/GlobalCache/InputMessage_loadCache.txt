@@ -1,0 +1,6 @@
+<Message>
+<map name='map1'>
+   <key>key1</key>
+   <value>value1</value>
+</map> 
+</Message>
