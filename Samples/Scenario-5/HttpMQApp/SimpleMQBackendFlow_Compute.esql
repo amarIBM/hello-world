@@ -1,0 +1,18 @@
+
+CREATE COMPUTE MODULE SimpleMQBackendFlow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.HTTPRequestIdentifier = InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+		SET OutputRoot.Properties = InputProperties;
+		
+		-- Set the MQ header fields to the HTTP rquest identifier to be used in the response flow
+		SET OutputRoot.Properties.ReplyIdentifier = Environment.Variables.HTTPRequestIdentifier;
+		SET OutputRoot.MQMD.CorrelId= Environment.Variables.HTTPRequestIdentifier; -- Overridden by Properties.ReplyIdentifier
+		SET OutputRoot.MQMD.MsgId   = Environment.Variables.HTTPRequestIdentifier;
+		
+		-- Copy the body data
+		SET OutputRoot.XMLNSC = InputRoot.XMLNSC;
+		
+		RETURN TRUE;
+	END;
+END MODULE;

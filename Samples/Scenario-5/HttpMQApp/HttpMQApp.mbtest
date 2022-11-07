@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:com.ibm.wbit.comptest.common.models.value="http:///com/ibm/etools/mft/unittest/common/models/value.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/http" xmlns:http_1="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1637863191045-143" eventTrace="/1" clientID="1637863191045-143">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <testModules xsi:type="model2:TestMsgFlow" name="/HttpMQApp/simple.msgflow" iD="1637863191045-147">
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="HTTP Input" urlSpecifier="/simple"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/HttpMQApp/SimpleMQBackendFlow.msgflow" iD="1637863191045-148">
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="HTTP Input" urlSpecifier="/BackendService"/>
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="MQ Input" queue="OUT"/>
+      </testModules>
+      <testModules xsi:type="model2:TestAppOrLib" name="HttpMQApp" iD="1637863191045-149"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="Integration Nodes" runtimeInstance="local^ace11mq^default^4423"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1637863191045-146" headerName="Default Header"/>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1637863191045-144" children="/2"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1637863191045-150" readOnly="true" clientID="1637863191045-143" timestamp="1637863191045" children="/3 /4 /7" msgFlow="/HttpMQApp/simple.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="HTTP Input" nodeType="ComIbmWSInput.msgnode" targetDeploymentLocationID="1637863228809-154">
+    <request xsi:type="model2:TestMessage" iD="1637863191477-151">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Ca%3Ehello%3C%2Fa%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1637863228809-152" parentID="1637863191045-150" timestamp="1637863228809" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Flow is required to be re-deployed because file /HttpMQApp/.project is not in the generated BAR file.&#xD;&#xA;[Info]  Going to rebuild and deploy BAR file&#xD;&#xA;[Info]  Cleaning BAR file...&#xD;&#xA;[Info]  Rebuilding BAR file...&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Deploying BAR file to Integration Server...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1637863233686-168" readOnly="true" clientID="1637863191045-143" parentID="1637863191045-150" timestamp="1637863233686" invokeCommandId="1637863233686-165" children="/5 /6"/>
+  <http:HTTPInformationEvent name="Sending Message to &quot;HTTP Input&quot;" iD="1637863233686-169" readOnly="true" clientID="1637863191045-143" parentID="1637863233686-168" timestamp="1637863233686" invokeCommandId="1637863233686-166" endpoint="http://localhost:7080/simple">
+    <message xsi:type="model2:TestMessage" iD="1637863191477-151">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Ca%3Ehello%3C%2Fa%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </message>
+  </http:HTTPInformationEvent>
+  <http:HTTPReplyEvent name="Received HTTP reply message for &quot;HTTP Input&quot;" iD="1637863233686-171" readOnly="true" clientID="1637863191045-143" parentID="1637863233686-168" timestamp="1637863233686" invokeCommandId="1637863233686-166" endpoint="http://localhost:7080/simple">
+    <message xsi:type="model2:TestMessage" iD="1637863233686-172">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText" stringValue="%3Ca%3Ehello%3C%2Fa%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="a" iD="1637863233705-173" value="hello"/>
+    </message>
+  </http:HTTPReplyEvent>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1637863233705-174" readOnly="true" clientID="1637863191045-143" parentID="1637863191045-150" timestamp="1637863233705" invokeCommandId="1637863233686-166"/>
+</xmi:XMI>
