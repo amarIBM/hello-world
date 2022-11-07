@@ -10,6 +10,7 @@ spec:
   configurations:
     - github-barauth
     - ace-mq-demo
+    - remote-mq
   createDashboardUsers: true
   designerFlowsOperationMode: disabled
   enableMetrics: true
