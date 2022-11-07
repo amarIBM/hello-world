@@ -10,3 +10,6 @@ Further instructions in the article referenced above, especially regarding the c
 
 Example files [ace-mq-policy.yaml](ace-mq-policy.yaml) and [remote-mq.yaml](remote-mq.yaml) shows the creation of 
 CP4i configurations for use with integration servers.
+
+See https://www.ibm.com/docs/en/app-connect/containers_cd?topic=servers-barauth-type for details on creating the `github-barauth`
+configuration, which does not need to provide authentication.
