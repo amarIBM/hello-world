@@ -9,7 +9,7 @@ spec:
     https://github.com/amarIBM/hello-world/raw/master/Samples/Scenario-5/SimpleHttpMQBackendApp.bar
   configurations:
     - github-barauth
-    - ace-mq-demo
+    - ace-mq-policy
     - remote-mq
   createDashboardUsers: true
   designerFlowsOperationMode: disabled
