@@ -4,6 +4,9 @@ Files for use with scenario 5.
 See https://community.ibm.com/community/user/integration/blogs/amar-shah1/2022/01/05/moving-an-integration-that-uses-ibm-mq-onto-contai 
 for more details on the overall scenario.
 
+Note that as this is a demo of MQ connectivity there are no unit tests provided; the pre-built SimpleHttpMQBackendApp.bar file 
+is expected to be used in most cases.
+
 ## Configurations
 
 Further instructions in the article referenced above, especially regarding the creation of the MQ policy. 
