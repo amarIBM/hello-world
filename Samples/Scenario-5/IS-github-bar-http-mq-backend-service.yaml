@@ -9,13 +9,14 @@ spec:
     https://github.com/amarIBM/hello-world/raw/master/Samples/Scenario-5/SimpleHttpMQBackendApp.bar
   configurations:
     - github-barauth
-    - ace-mq-demo
+    - ace-mq-policy
+    - remote-mq
   createDashboardUsers: true
   designerFlowsOperationMode: disabled
   enableMetrics: true
   license:
     accept: true
-    license: L-KSBM-C37J2R
+    license: L-KSBM-CJ2KWU
     use: AppConnectEnterpriseProduction
   pod:
     containers:

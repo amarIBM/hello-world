@@ -1,0 +1,9 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: Configuration
+metadata:
+  name: remote-mq
+  namespace: ace
+spec:
+  type: serverconf
+  contents: >-
+    cmVtb3RlRGVmYXVsdFF1ZXVlTWFuYWdlcjogJ3tBQ0VNUUVuZHBvaW50fTpSZW1vdGVNUScK

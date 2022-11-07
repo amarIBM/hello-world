@@ -1,0 +1,18 @@
+
+CREATE COMPUTE MODULE ResponseFlow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.HTTPRequestIdentifier  = InputRoot.MQMD.CorrelId;
+
+		-- Restore the HTTP request identifier for the HTTPReply node to use
+		SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier = CAST(Environment.Variables.HTTPRequestIdentifier AS BLOB);
+
+		SET OutputRoot.Properties = InputProperties;
+		SET OutputRoot.HTTPReplyHeader."Content-Type"='text/xml';
+		
+		-- Simple example message; would normally have been provided by the backend service
+		SET OutputRoot.XMLNSC.Response.message = 'Response from backend service';
+
+		RETURN TRUE;
+	END;
+END MODULE;
